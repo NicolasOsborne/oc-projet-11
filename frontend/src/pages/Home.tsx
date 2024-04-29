@@ -1,5 +1,13 @@
+import Features from '../components/Features'
+import Hero from '../components/Hero'
+
 const Home = () => {
-  return <div></div>
+  return (
+    <main>
+      <Hero />
+      <Features />
+    </main>
+  )
 }
 
 export default Home
