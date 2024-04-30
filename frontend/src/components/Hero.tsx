@@ -1,4 +1,4 @@
-import Banner from '../assets/bank-tree.jpeg'
+import Banner from '../assets/bank-tree.webp'
 
 const Hero = () => {
   return (

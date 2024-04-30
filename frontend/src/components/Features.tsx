@@ -1,6 +1,6 @@
-import ChatIcon from '../assets/icon-chat.png'
-import MoneyIcon from '../assets/icon-money.png'
-import SecurityIcon from '../assets/icon-security.png'
+import ChatIcon from '../assets/icon-chat.webp'
+import MoneyIcon from '../assets/icon-money.webp'
+import SecurityIcon from '../assets/icon-security.webp'
 import FeatureItem from './FeatureItem'
 
 const Features = () => {
