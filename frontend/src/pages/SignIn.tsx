@@ -1,5 +1,11 @@
+import SignInForm from '../components/SignInForm'
+
 const SignIn = () => {
-  return <div></div>
+  return (
+    <main className='main bg-dark'>
+      <SignInForm />
+    </main>
+  )
 }
 
 export default SignIn
