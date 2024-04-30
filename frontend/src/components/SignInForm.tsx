@@ -19,7 +19,7 @@ const SignInForm = () => {
           <label htmlFor='remember-me'>Remember me</label>
         </div>
         {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
-        <Button buttonText='Sign In' />
+        <Button buttonClass='sign-in-button' buttonText='Sign In' />
         {/* <a href='./user.html' className='sign-in-button'>
           Sign In
         </a> */}
