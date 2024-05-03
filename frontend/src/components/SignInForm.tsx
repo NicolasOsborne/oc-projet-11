@@ -8,8 +8,11 @@ const SignInForm = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+  const errorMessage = useSelector((state) => state.login.error)
+
   const navigate = useNavigate()
 
   const handleLogin = (e) => {
@@ -23,6 +26,12 @@ const SignInForm = () => {
       navigate('/user')
     }
   }, [isLoggedIn, navigate])
+
+  useEffect(() => {
+    if (errorMessage) {
+      setError(errorMessage)
+    }
+  }, [errorMessage])
 
   return (
     <section className='sign-in-content'>
@@ -49,6 +58,7 @@ const SignInForm = () => {
           <input type='checkbox' id='remember-me' />
           <label htmlFor='remember-me'>Remember me</label>
         </div>
+        {errorMessage && <p className='error-message'>{error}</p>}
         <button className='sign-in-button' type='submit'>
           Sign In
         </button>
