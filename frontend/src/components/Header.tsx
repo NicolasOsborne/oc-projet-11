@@ -21,7 +21,7 @@ const Header = () => {
           {isLoggedIn ? ' Tony ' : ' Sign In '}
         </NavLink>
         {isLoggedIn && (
-          <NavLink to='/' className='main-nav-item'>
+          <NavLink to='/sign-in' className='main-nav-item'>
             <i className='fa fa-sign-out'></i>
             {' Sign Out '}
           </NavLink>
