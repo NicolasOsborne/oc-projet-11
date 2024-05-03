@@ -1,9 +1,18 @@
 import Logo from '../assets/argentBankLogo.webp'
-import { NavLink, Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutSuccess } from '../redux/features/login/loginSlice'
 
 const Header = () => {
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logoutSuccess())
+    navigate('/sign-in')
+  }
 
   return (
     <nav className='main-nav'>
@@ -21,7 +30,11 @@ const Header = () => {
           {isLoggedIn ? ' Tony ' : ' Sign In '}
         </NavLink>
         {isLoggedIn && (
-          <NavLink to='/sign-in' className='main-nav-item'>
+          <NavLink
+            to='/sign-in'
+            className='main-nav-item'
+            onClick={handleLogout}
+          >
             <i className='fa fa-sign-out'></i>
             {' Sign Out '}
           </NavLink>
