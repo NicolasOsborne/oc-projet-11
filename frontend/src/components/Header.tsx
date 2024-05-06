@@ -5,6 +5,7 @@ import { logoutSuccess } from '../redux/features/login/loginSlice'
 
 const Header = () => {
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+  const userName = useSelector((state) => state.user.firstName)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const Header = () => {
       <div>
         <NavLink to='/sign-in' className='main-nav-item'>
           <i className='fa fa-user-circle'></i>
-          {isLoggedIn ? ' Tony ' : ' Sign In '}
+          {isLoggedIn ? `${' ' + userName}` : ' Sign In '}
         </NavLink>
         {isLoggedIn && (
           <NavLink
