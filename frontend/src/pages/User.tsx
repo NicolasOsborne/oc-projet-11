@@ -13,7 +13,6 @@ const User = () => {
   const [isFormVisible, setIsFormVisible] = useState(false)
   const toggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible)
-    console.log('Click')
   }
 
   useEffect(() => {
@@ -33,7 +32,12 @@ const User = () => {
           buttonText='Edit Name'
           onClick={toggleFormVisibility}
         />
-        {isFormVisible && <EditUserInfoForm isVisible={isFormVisible} />}
+        {isFormVisible && (
+          <EditUserInfoForm
+            isVisible={isFormVisible}
+            hideForm={toggleFormVisibility}
+          />
+        )}
       </div>
       <h2 className='sr-only'>Accounts</h2>
       {accountsData.map((accountData) => {

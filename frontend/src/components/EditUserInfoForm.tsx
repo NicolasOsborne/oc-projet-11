@@ -1,13 +1,15 @@
 import { useSelector } from 'react-redux'
 
-const EditUserInfoForm = ({ isVisible }) => {
+const EditUserInfoForm = ({ isVisible, hideForm }) => {
   const user = useSelector((state) => state.user)
+
+  const handleHideForm = () => {
+    hideForm(false)
+  }
 
   const handleUpdateInfo = (e) => {
     e.preventDefault()
   }
-
-  if (!isVisible) return null
 
   return (
     <form className='edit-user-info-form' onSubmit={handleUpdateInfo}>
@@ -43,7 +45,9 @@ const EditUserInfoForm = ({ isVisible }) => {
         <button className='edit-button' type='submit'>
           Save
         </button>
-        <button className='edit-button'>Cancel</button>
+        <button className='edit-button' onClick={handleHideForm}>
+          Cancel
+        </button>
       </div>
     </form>
   )
