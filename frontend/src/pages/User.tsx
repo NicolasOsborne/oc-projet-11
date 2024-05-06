@@ -1,5 +1,6 @@
 import AccountCard from '../components/AccountCard'
 import Button from '../components/Button'
+import accountsData from '../data/accountsData.json'
 
 const User = () => {
   return (
@@ -13,21 +14,16 @@ const User = () => {
         <Button buttonClass='edit-button' buttonText='Edit Name' />
       </div>
       <h2 className='sr-only'>Accounts</h2>
-      <AccountCard
-        accountTitle='Argent Bank Checking (x8349)'
-        accountAmount='$2,082.79'
-        accountDescription='Available Balance'
-      />
-      <AccountCard
-        accountTitle='Argent Bank Savings (x6712)'
-        accountAmount='$10,928.42'
-        accountDescription='Available Balance'
-      />
-      <AccountCard
-        accountTitle='Argent Bank Credit Card (x8349)'
-        accountAmount='$184.30'
-        accountDescription='Current Balance'
-      />
+      {accountsData.map((accountData) => {
+        return (
+          <AccountCard
+            key={accountData.id}
+            accountTitle={accountData.title}
+            accountAmount={accountData.amount}
+            accountDescription={accountData.description}
+          />
+        )
+      })}
     </main>
   )
 }
