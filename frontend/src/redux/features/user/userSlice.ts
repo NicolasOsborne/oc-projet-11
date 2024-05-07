@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import getProfile from './user'
+import { editProfile, getProfile } from './user'
 
 const initialState = {
   firstName: null,
@@ -24,6 +24,17 @@ const userSlice = createSlice({
         state.error = action.payload.message
       })
       .addCase(getProfile.rejected, (state, action) => {
+        state.error = action.payload.message
+      })
+
+      .addCase(editProfile.pending, (state) => {
+        state.error = null
+      })
+      .addCase(editProfile.fulfilled, (state, action) => {
+        state.userName = action.payload.body.userName
+        state.error = action.payload.message
+      })
+      .addCase(editProfile.rejected, (state, action) => {
         state.error = action.payload.message
       })
   },

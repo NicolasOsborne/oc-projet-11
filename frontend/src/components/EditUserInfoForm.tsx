@@ -1,25 +1,31 @@
-import { useSelector } from 'react-redux'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { editProfile } from '../redux/features/user/user'
 
-const EditUserInfoForm = ({ isVisible, hideForm }) => {
+const EditUserInfoForm = ({ isVisible, cancelForm }) => {
+  const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
 
-  const handleHideForm = () => {
-    hideForm(false)
+  const [userName, setUserName] = useState('')
+
+  const handleCancelForm = () => {
+    cancelForm(false)
   }
 
-  const handleUpdateInfo = (e) => {
+  const handleEditProfile = (e) => {
     e.preventDefault()
+    dispatch(editProfile(userName))
   }
 
   return (
-    <form className='edit-user-info-form' onSubmit={handleUpdateInfo}>
+    <form className='edit-user-info-form' onSubmit={handleEditProfile}>
       <div className='input-wrapper'>
         <label htmlFor='user-name'>User name:</label>
         <input
           type='text'
           id='user-name'
           placeholder={user.userName}
-          //  onChange={(e) => setUserName(e.target.value)}
+          onChange={(e) => setUserName(e.target.value)}
         />
       </div>
       <div className='input-wrapper'>
@@ -45,7 +51,7 @@ const EditUserInfoForm = ({ isVisible, hideForm }) => {
         <button className='edit-button' type='submit'>
           Save
         </button>
-        <button className='edit-button' onClick={handleHideForm}>
+        <button className='edit-button' onClick={handleCancelForm}>
           Cancel
         </button>
       </div>

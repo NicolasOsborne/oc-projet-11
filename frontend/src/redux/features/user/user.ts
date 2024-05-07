@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const getProfile = createAsyncThunk('user/getProfile', async () => {
+export const getProfile = createAsyncThunk('user/getProfile', async () => {
   const response = await axios.post(
     'http://localhost:3001/api/v1/user/profile',
     {},
@@ -15,4 +15,21 @@ const getProfile = createAsyncThunk('user/getProfile', async () => {
   return response.data
 })
 
-export default getProfile
+export const editProfile = createAsyncThunk(
+  'user/editProfile',
+  async (userName) => {
+    const response = await axios.put(
+      'http://localhost:3001/api/v1/user/profile',
+      {
+        userName: userName,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+        },
+      }
+    )
+    return response.data
+  }
+)

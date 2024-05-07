@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AccountCard from '../components/AccountCard'
 import Button from '../components/Button'
 import accountsData from '../data/accountsData.json'
-import getProfile from '../redux/features/user/user'
+import { getProfile } from '../redux/features/user/user'
 import { useEffect, useState } from 'react'
 import EditUserInfoForm from '../components/EditUserInfoForm'
 
@@ -35,7 +35,7 @@ const User = () => {
         {isFormVisible && (
           <EditUserInfoForm
             isVisible={isFormVisible}
-            hideForm={toggleFormVisibility}
+            cancelForm={toggleFormVisibility}
           />
         )}
       </div>
