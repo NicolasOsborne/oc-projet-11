@@ -5,7 +5,7 @@ import { logoutSuccess } from '../redux/features/login/loginSlice'
 
 const Header = () => {
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
-  const userName = useSelector((state) => state.user.firstName)
+  const userName = useSelector((state) => state.user.userName)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
