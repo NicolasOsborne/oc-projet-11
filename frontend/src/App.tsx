@@ -4,10 +4,19 @@ import SignIn from './pages/SignIn'
 import User from './pages/User'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { alreadyLoggedIn } from './redux/features/login/loginSlice'
 
 function App() {
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+
+  const token = sessionStorage.getItem('token')
+  const dispatch = useDispatch()
+
+  if (token) {
+    dispatch(alreadyLoggedIn())
+  }
+
   return (
     <Router>
       <Header />

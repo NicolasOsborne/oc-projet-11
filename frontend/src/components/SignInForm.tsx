@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import login from '../redux/features/login/login'
 
 const SignInForm = () => {
@@ -10,22 +9,13 @@ const SignInForm = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
   const errorMessage = useSelector((state) => state.login.error)
-
-  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault()
     const userData = { email, password }
     dispatch(login(userData))
   }
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/user')
-    }
-  }, [isLoggedIn, navigate])
 
   useEffect(() => {
     if (errorMessage) {
@@ -39,9 +29,9 @@ const SignInForm = () => {
       <h1>Sign In</h1>
       <form onSubmit={handleLogin}>
         <div className='input-wrapper'>
-          <label htmlFor='email'>Username</label>
+          <label htmlFor='email'>E-mail</label>
           <input
-            type='text'
+            type='email'
             id='email'
             onChange={(e) => setEmail(e.target.value)}
           />

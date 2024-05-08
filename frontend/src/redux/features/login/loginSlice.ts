@@ -11,11 +11,8 @@ const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    loginSuccess(state, action) {
+    alreadyLoggedIn(state) {
       state.isLoggedIn = true
-      state.token = action.payload.body.token
-      state.error = action.payload.message
-      sessionStorage.setItem('token', state.token)
     },
     logoutSuccess(state) {
       state.isLoggedIn = false
@@ -45,5 +42,5 @@ const loginSlice = createSlice({
   },
 })
 
-export const { loginSuccess, logoutSuccess } = loginSlice.actions
+export const { alreadyLoggedIn, logoutSuccess } = loginSlice.actions
 export default loginSlice.reducer
