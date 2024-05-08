@@ -17,7 +17,7 @@ const User = () => {
 
   useEffect(() => {
     dispatch(getProfile())
-  }, [])
+  }, [dispatch])
 
   return (
     <main className='main bg-dark'>
