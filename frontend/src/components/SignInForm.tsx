@@ -30,6 +30,8 @@ const SignInForm = () => {
     dispatch(login(userData))
     if (rememberMe) {
       localStorage.setItem('rememberMe', JSON.stringify(userData))
+    } else {
+      localStorage.removeItem('rememberMe')
     }
   }
 
