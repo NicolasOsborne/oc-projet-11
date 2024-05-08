@@ -2,15 +2,20 @@ import { configureStore } from '@reduxjs/toolkit'
 import loginReducer from './features/login/loginSlice'
 import userReducer from './features/user/userSlice'
 import storage from 'redux-persist/lib/storage'
-import { persistReducer, persistStore } from 'redux-persist'
+import { PERSIST, persistReducer, persistStore, REHYDRATE } from 'redux-persist'
 
-const persistConfig = {
-  key: 'root',
+const loginPersistConfig = {
+  key: 'login',
   storage,
 }
 
-const loginPersistedReducer = persistReducer(persistConfig, loginReducer)
-const userPersistedReducer = persistReducer(persistConfig, userReducer)
+const userPersistConfig = {
+  key: 'user',
+  storage,
+}
+
+const loginPersistedReducer = persistReducer(loginPersistConfig, loginReducer)
+const userPersistedReducer = persistReducer(userPersistConfig, userReducer)
 
 const store = configureStore({
   reducer: {
@@ -20,7 +25,10 @@ const store = configureStore({
   devTools: true,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializablecheck: false,
+      serializableCheck: {
+        // Correction d'une erreur dans la console liée à la vérification de sérialisation des données, en ignorant ces actions.
+        ignoredActions: [REHYDRATE, PERSIST],
+      },
     }),
 })
 

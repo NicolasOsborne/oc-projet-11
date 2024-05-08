@@ -9,12 +9,28 @@ const SignInForm = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
+  const [rememberMe, setRememberMe] = useState(false)
+
   const errorMessage = useSelector((state) => state.login.error)
+
+  useEffect(() => {
+    const storedLoginData = localStorage.getItem('rememberMe')
+    if (storedLoginData) {
+      const { email: storedEmail, password: storedPassword } =
+        JSON.parse(storedLoginData)
+      setEmail(storedEmail)
+      setPassword(storedPassword)
+      setRememberMe(true)
+    }
+  }, [])
 
   const handleLogin = (e) => {
     e.preventDefault()
     const userData = { email, password }
     dispatch(login(userData))
+    if (rememberMe) {
+      localStorage.setItem('rememberMe', JSON.stringify(userData))
+    }
   }
 
   useEffect(() => {
@@ -33,6 +49,7 @@ const SignInForm = () => {
           <input
             type='email'
             id='email'
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -41,11 +58,17 @@ const SignInForm = () => {
           <input
             type='password'
             id='password'
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className='input-remember'>
-          <input type='checkbox' id='remember-me' />
+          <input
+            type='checkbox'
+            id='remember-me'
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
           <label htmlFor='remember-me'>Remember me</label>
         </div>
         {errorMessage && <p className='error-message'>{error}</p>}
