@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import login from '../redux/features/login/login'
 import { AppState } from '../types/types'
+import { Dispatch } from '@reduxjs/toolkit'
 
 const SignInForm = () => {
-  const dispatch = useDispatch()
+  const dispatch: Dispatch<any> = useDispatch()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')

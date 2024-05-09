@@ -6,9 +6,10 @@ import { getProfile } from '../redux/features/user/user'
 import { useEffect, useState } from 'react'
 import EditUserInfoForm from '../components/EditUserInfoForm'
 import { AppState } from '../types/types'
+import { Dispatch } from '@reduxjs/toolkit'
 
 const User = () => {
-  const dispatch = useDispatch()
+  const dispatch: Dispatch<any> = useDispatch()
   const user = useSelector((state: AppState) => state.user)
 
   const [isFormVisible, setIsFormVisible] = useState(false)
@@ -34,10 +35,7 @@ const User = () => {
           onClick={toggleFormVisibility}
         />
         {isFormVisible && (
-          <EditUserInfoForm
-            isVisible={isFormVisible}
-            cancelForm={toggleFormVisibility}
-          />
+          <EditUserInfoForm cancelForm={toggleFormVisibility} />
         )}
       </div>
       <h2 className='sr-only'>Accounts</h2>

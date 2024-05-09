@@ -2,11 +2,13 @@
 export interface AppState {
   login: {
     isLoggedIn: boolean
+    token: string
     error: string
   }
   user: {
     firstName: string
     lastName: string
     userName: string
+    error: string
   }
 }

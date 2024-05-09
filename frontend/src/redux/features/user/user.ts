@@ -17,7 +17,7 @@ export const getProfile = createAsyncThunk('user/getProfile', async () => {
 
 export const editProfile = createAsyncThunk(
   'user/editProfile',
-  async (userName) => {
+  async (userName: string) => {
     const response = await axios.put(
       'http://localhost:3001/api/v1/user/profile',
       {

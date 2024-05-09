@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editProfile } from '../redux/features/user/user'
 import { AppState } from '../types/types'
+import { Dispatch } from '@reduxjs/toolkit'
 
 const EditUserInfoForm = ({ cancelForm }: EditUserInfoFormProps) => {
-  const dispatch = useDispatch()
+  const dispatch: Dispatch<any> = useDispatch()
   const user = useSelector((state: AppState) => state.user)
 
   const [userName, setUserName] = useState('')

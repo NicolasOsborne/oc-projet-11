@@ -24,7 +24,7 @@ const userSlice = createSlice({
         state.error = action.payload.message
       })
       .addCase(getProfile.rejected, (state, action) => {
-        state.error = action.payload.message
+        state.error = action.payload
       })
 
       .addCase(editProfile.pending, (state) => {
@@ -35,7 +35,7 @@ const userSlice = createSlice({
         state.error = action.payload.message
       })
       .addCase(editProfile.rejected, (state, action) => {
-        state.error = action.payload.message
+        state.error = action.payload
       })
   },
 })
