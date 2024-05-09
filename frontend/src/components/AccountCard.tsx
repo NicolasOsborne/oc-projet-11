@@ -19,6 +19,8 @@ const AccountCard = (accountDetails: AccountDetails) => {
         <Button
           buttonClass='transaction-button'
           buttonText='View transactions'
+          // Fonction vide puisque les boutons ne renvoient pas vers les comptes pour l'instant
+          onClick={() => {}}
         />
       </div>
     </section>

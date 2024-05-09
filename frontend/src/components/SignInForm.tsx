@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import login from '../redux/features/login/login'
+import { AppState } from '../types/types'
 
 const SignInForm = () => {
   const dispatch = useDispatch()
@@ -11,7 +12,7 @@ const SignInForm = () => {
 
   const [rememberMe, setRememberMe] = useState(false)
 
-  const errorMessage = useSelector((state) => state.login.error)
+  const errorMessage = useSelector((state: AppState) => state.login.error)
 
   useEffect(() => {
     const storedLoginData = localStorage.getItem('rememberMe')
@@ -24,7 +25,7 @@ const SignInForm = () => {
     }
   }, [])
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const userData = { email, password }
     dispatch(login(userData))

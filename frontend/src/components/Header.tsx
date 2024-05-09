@@ -2,10 +2,11 @@ import Logo from '../assets/argentBankLogo.webp'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutSuccess } from '../redux/features/login/loginSlice'
+import { AppState } from '../types/types'
 
 const Header = () => {
-  const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
-  const userName = useSelector((state) => state.user.userName)
+  const isLoggedIn = useSelector((state: AppState) => state.login.isLoggedIn)
+  const userName = useSelector((state: AppState) => state.user.userName)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()

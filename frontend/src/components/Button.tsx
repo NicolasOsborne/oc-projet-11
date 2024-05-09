@@ -1,7 +1,7 @@
 interface ButtonProps {
   buttonText: string
   buttonClass: string
-  onClick: any
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const Button = (buttonProps: ButtonProps) => {

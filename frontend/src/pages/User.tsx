@@ -5,10 +5,11 @@ import accountsData from '../data/accountsData.json'
 import { getProfile } from '../redux/features/user/user'
 import { useEffect, useState } from 'react'
 import EditUserInfoForm from '../components/EditUserInfoForm'
+import { AppState } from '../types/types'
 
 const User = () => {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user)
+  const user = useSelector((state: AppState) => state.user)
 
   const [isFormVisible, setIsFormVisible] = useState(false)
   const toggleFormVisibility = () => {

@@ -7,9 +7,10 @@ import Header from './components/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import { alreadyLoggedIn } from './redux/features/login/loginSlice'
 import { useEffect } from 'react'
+import { AppState } from './types/types'
 
 function App() {
-  const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+  const isLoggedIn = useSelector((state: AppState) => state.login.isLoggedIn)
 
   const token = sessionStorage.getItem('token')
   const dispatch = useDispatch()

@@ -3,14 +3,17 @@ import axios from 'axios'
 
 const login = createAsyncThunk(
   'login',
-  async (userData, { rejectWithValue }) => {
+  async (
+    userData: { email: string; password: string },
+    { rejectWithValue }
+  ) => {
     try {
       const response = await axios.post(
         'http://localhost:3001/api/v1/user/login',
         userData
       )
       return response.data
-    } catch (error) {
+    } catch (error: any) {
       if (
         error.response &&
         error.response.data &&
