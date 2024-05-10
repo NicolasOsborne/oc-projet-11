@@ -1,7 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { editProfile, getProfile } from './user'
+import { UserInitialState } from '../../../types/types'
 
-const initialState = {
+const initialState: UserInitialState = {
   firstName: null,
   lastName: null,
   userName: null,
@@ -23,7 +24,7 @@ const userSlice = createSlice({
         state.userName = action.payload.body.userName
         state.error = action.payload.message
       })
-      .addCase(getProfile.rejected, (state, action) => {
+      .addCase(getProfile.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload
       })
 
@@ -34,7 +35,7 @@ const userSlice = createSlice({
         state.userName = action.payload.body.userName
         state.error = action.payload.message
       })
-      .addCase(editProfile.rejected, (state, action) => {
+      .addCase(editProfile.rejected, (state, action: PayloadAction<any>) => {
         state.error = action.payload
       })
   },

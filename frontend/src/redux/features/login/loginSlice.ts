@@ -1,7 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import login from './login'
+import { LoginInitialState } from '../../../types/types'
 
-const initialState = {
+const initialState: LoginInitialState = {
   isLoggedIn: false,
   token: null,
   error: null,
@@ -32,9 +33,9 @@ const loginSlice = createSlice({
         state.isLoggedIn = true
         state.token = action.payload.body.token
         state.error = action.payload.message
-        sessionStorage.setItem('token', state.token)
+        sessionStorage.setItem('token', state.token ?? '') // Utilisation de l'opérateur de coalescence des nuls ?? pour éviter une erreur dans le sessionStorage si token est null. Retourne state.token si il n'est pas null. Retourne "" si state.token est null.
       })
-      .addCase(login.rejected, (state, action) => {
+      .addCase(login.rejected, (state, action: PayloadAction<any>) => {
         state.isLoggedIn = false
         state.token = null
         state.error = action.payload

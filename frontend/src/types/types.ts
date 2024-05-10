@@ -12,3 +12,18 @@ export interface AppState {
     error: string
   }
 }
+
+// Interface de types pour initialState de userSlice
+export interface UserInitialState {
+  firstName: null | string
+  lastName: null | string
+  userName: null | string
+  error: null | string
+}
+
+// Interface de types pour initialState de loginSlice
+export interface LoginInitialState {
+  isLoggedIn: boolean
+  token: null | string
+  error: null | string
+}
