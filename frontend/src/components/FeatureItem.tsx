@@ -1,8 +1,4 @@
-interface FeatureItemProps {
-  featureIcon: string
-  featureTitle: string
-  featureText: string
-}
+import { FeatureItemProps } from '../types/types'
 
 const FeatureItem = (featureItemProps: FeatureItemProps) => {
   const { featureIcon, featureTitle, featureText } = featureItemProps

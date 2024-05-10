@@ -27,3 +27,29 @@ export interface LoginInitialState {
   token: null | string
   error: null | string
 }
+
+// Interface de types pour les informations affichées sur chauque AccountCard
+export interface AccountDetails {
+  accountTitle: string
+  accountAmount: string
+  accountDescription: string
+}
+
+// Interface de types pour le composant Button
+export interface ButtonProps {
+  buttonText: string
+  buttonClass: string
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+// Interface de types pour EditUserInfoForm
+export interface EditUserInfoFormProps {
+  cancelForm: (isVisible: boolean) => void
+}
+
+// Interface de types pour FeatureItem
+export interface FeatureItemProps {
+  featureIcon: string
+  featureTitle: string
+  featureText: string
+}

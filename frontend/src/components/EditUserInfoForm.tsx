@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editProfile } from '../redux/features/user/user'
-import { AppState } from '../types/types'
+import { AppState, EditUserInfoFormProps } from '../types/types'
 import { Dispatch } from '@reduxjs/toolkit'
 
 const EditUserInfoForm = ({ cancelForm }: EditUserInfoFormProps) => {
@@ -62,7 +62,3 @@ const EditUserInfoForm = ({ cancelForm }: EditUserInfoFormProps) => {
 }
 
 export default EditUserInfoForm
-
-interface EditUserInfoFormProps {
-  cancelForm: (isVisible: boolean) => void
-}

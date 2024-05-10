@@ -1,10 +1,5 @@
 import Button from './Button'
-
-interface AccountDetails {
-  accountTitle: string
-  accountAmount: string
-  accountDescription: string
-}
+import { AccountDetails } from '../types/types'
 
 const AccountCard = (accountDetails: AccountDetails) => {
   const { accountTitle, accountAmount, accountDescription } = accountDetails
