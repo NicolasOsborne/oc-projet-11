@@ -1,5 +1,7 @@
 import Banner from '../assets/bank-tree.webp'
 
+// Component pour afficher la bannière Hero de la page d'accueil
+
 const Hero = () => {
   return (
     <div className='hero' style={{ backgroundImage: `url('${Banner}')` }}>

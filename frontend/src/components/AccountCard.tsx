@@ -1,7 +1,10 @@
 import Button from './Button'
 import { AccountDetails } from '../types/types'
 
+// Component pour l'affichage des détails d'informations d'un compte (titre, description et solde)
+
 const AccountCard = (accountDetails: AccountDetails) => {
+  // Déstructuration des props pour extraire les props nécessaires (accountTitle, accountAmount et accountDescription)
   const { accountTitle, accountAmount, accountDescription } = accountDetails
   return (
     <section className='account'>

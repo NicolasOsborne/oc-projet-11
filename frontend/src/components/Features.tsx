@@ -3,6 +3,8 @@ import MoneyIcon from '../assets/icon-money.webp'
 import SecurityIcon from '../assets/icon-security.webp'
 import FeatureItem from './FeatureItem'
 
+// Component affichant la section contenant les trois features de la page d'accueil
+
 const Features = () => {
   return (
     <section className='features'>

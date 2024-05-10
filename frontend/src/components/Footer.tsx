@@ -1,3 +1,5 @@
+// Component affichant le footer
+
 const Footer = () => {
   return (
     <footer className='footer'>

@@ -10,11 +10,16 @@ import { useEffect } from 'react'
 import { AppState } from './types/types'
 
 function App() {
-  const isLoggedIn = useSelector((state: AppState) => state.login.isLoggedIn)
-
-  const token = sessionStorage.getItem('token')
+  // Hook permettant d'envoyer les actions Redux
   const dispatch = useDispatch()
 
+  // Récupération du state isLoggedIn pour vérifier si l'utilisateur est connecté ou non
+  const isLoggedIn = useSelector((state: AppState) => state.login.isLoggedIn)
+
+  // Récupérer le token enregistré dans le sessionStorage
+  const token = sessionStorage.getItem('token')
+
+  // Si le token est présent : envoit de l'action alreadyLoggedIn (pour gérer l'affichage du Header et du dashboard si l'utilsateur est connecté et qu'il actualise la page)
   useEffect(() => {
     if (token) {
       dispatch(alreadyLoggedIn())
@@ -27,6 +32,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/sign-in' element={<SignIn />} />
+        {/* Afficher la page User seulement si isLoggedIn est true */}
         {isLoggedIn && <Route path='/user' element={<User />} />}
       </Routes>
       <Footer />
