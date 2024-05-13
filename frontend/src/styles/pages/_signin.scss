@@ -26,16 +26,18 @@
    flex-direction: column;
    text-align: left;
    margin-bottom: 1rem;
+
+   label {
+      font-weight: bold;
+   }
+
+   input {
+      padding: 5px;
+      font-size: 1.2rem;
+   }
 }
 
-.input-wrapper label {
-   font-weight: bold;
-}
 
-.input-wrapper input {
-   padding: 5px;
-   font-size: 1.2rem;
-}
 
 .error-message {
    color: red;
