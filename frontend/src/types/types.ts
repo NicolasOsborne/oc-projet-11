@@ -44,7 +44,7 @@ export interface ButtonProps {
 
 // Interface de types pour EditUserInfoForm
 export interface EditUserInfoFormProps {
-  cancelForm: (isVisible: boolean) => void
+  isVisible: (isVisible: boolean) => void
 }
 
 // Interface de types pour FeatureItem

@@ -21,6 +21,10 @@ const SignInForm = () => {
   // Récupérer le message d'erreur dans le store Redux
   const errorMessage = useSelector((state: AppState) => state.login.error)
 
+  // Définir des règles regex pour sécuriser les inputs du formulaire
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]$/
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9!&.?]{1,10}$/
+
   // Hook pour accéder aux identifiants de connexion stockés dans le localStorage si l'utilisateur a coché la case "Remember me"
   useEffect(() => {
     const storedLoginData = localStorage.getItem('rememberMe')
@@ -37,6 +41,14 @@ const SignInForm = () => {
   // Fonction pour gérer le submit du formulaire de connexion
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    // Vérifier que la valeur des inputs email et password respectent les règles regex
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address')
+    }
+    if (!passwordRegex.test(password)) {
+      setError('Please enter a valid password')
+    }
+    // Récupérer les valeurs des inputs dans une variable userData
     const userData = { email, password }
     // Envoi de l'action login avec la valeur userData
     dispatch(login(userData))

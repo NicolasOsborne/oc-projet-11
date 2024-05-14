@@ -45,9 +45,7 @@ const User = () => {
           onClick={toggleFormVisibility}
         />
         {/* Si le state du formulaire est visible, afficher le component du formulaire */}
-        {isFormVisible && (
-          <EditUserInfoForm cancelForm={toggleFormVisibility} />
-        )}
+        {isFormVisible && <EditUserInfoForm isVisible={toggleFormVisibility} />}
       </div>
       <h2 className='sr-only'>Accounts</h2>
       {/* Afficher les comptes */}

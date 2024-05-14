@@ -6,7 +6,10 @@ import { Dispatch } from '@reduxjs/toolkit'
 
 // Formulaire de modification du pseudo de l'utilisateur
 
-const EditUserInfoForm = ({ cancelForm }: EditUserInfoFormProps) => {
+// Définir une règle regex pour vérifier que l'input userName n'est pas vide et n'accepte que certains caractères spéciaux
+const userNameRegex = /^[a-zA-Z0-9&éèàçù\-_ ]+$/
+
+const EditUserInfoForm = ({ isVisible }: EditUserInfoFormProps) => {
   // Hook permettant d'envoyer les actions Redux
   const dispatch: Dispatch<any> = useDispatch()
 
@@ -16,16 +19,26 @@ const EditUserInfoForm = ({ cancelForm }: EditUserInfoFormProps) => {
   // Déclaration du state pour l'input du formulaire pour le pseudo (userName) de l'utilisateur
   const [userName, setUserName] = useState('')
 
+  const [error, setError] = useState('')
+
   // Fonction pour gérer l'annulation de la modification via le formulaire (et sa fermeture)
   const handleCancelForm = () => {
-    cancelForm(false)
+    isVisible(false)
   }
 
   // Fonction pour gérer le submit du formulaire de modification du userName
   const handleEditProfile = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    // Vérifier que la valeur de l'input userName respecte la règle regex définie
+    if (!userNameRegex.test(userName)) {
+      setError('Please enter a valid username')
+      return
+    } else {
+      setError('')
+    }
     // Envoi (dispatch) de l'action editProfile avec la valeur de l'input userName
     dispatch(editProfile(userName))
+    isVisible(false)
   }
 
   return (
@@ -57,7 +70,7 @@ const EditUserInfoForm = ({ cancelForm }: EditUserInfoFormProps) => {
           disabled // L'utilisateur ne peut pas modifier son nom
         />
       </div>
-      {/* {errorMessage && <p className='error-message'>{error}</p>} */}
+      {error && <p className='error-message'>{error}</p>}
       <div className='edit-form-buttons'>
         <button className='edit-button' type='submit'>
           Save
