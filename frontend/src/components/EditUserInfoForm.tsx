@@ -6,8 +6,8 @@ import { Dispatch } from '@reduxjs/toolkit'
 
 // Formulaire de modification du pseudo de l'utilisateur
 
-// Définir une règle regex pour vérifier que l'input userName n'est pas vide et n'accepte que certains caractères spéciaux
-const userNameRegex = /^[a-zA-Z0-9&éèàçù\-_ ]+$/
+// Définir une règle regex pour vérifier que l'input userName n'est pas vide et n'accepte que certains caractères spéciaux ("-" et "_")
+const userNameRegex = /^[a-zA-Z0-9\-_]+$/
 
 const EditUserInfoForm = ({ isVisible }: EditUserInfoFormProps) => {
   // Hook permettant d'envoyer les actions Redux

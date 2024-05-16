@@ -22,8 +22,8 @@ const SignInForm = () => {
   const errorMessage = useSelector((state: AppState) => state.login.error)
 
   // Définir des règles regex pour sécuriser les inputs du formulaire
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]$/
-  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9!&.?]{1,10}$/
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}$/
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9!&.?]{1,20}$/
 
   // Hook pour accéder aux identifiants de connexion stockés dans le localStorage si l'utilisateur a coché la case "Remember me"
   useEffect(() => {
