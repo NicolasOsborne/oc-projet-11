@@ -366,30 +366,41 @@ definitions:
     properties:
       accountId:
         type: string
+        description: Unique ID for each account
       accountName:
         type: string
+        description: Account name
       accountBalance:
         type: number
+        description: Account current available balance
   Transaction:
     type: object
     properties:
       transactionId:
         type: string
+        description: Unique ID for each transaction
       date:
         type: string
         format: date-time
+        description: Transaction date
       description:
         type: string
+        description: Transaction description
       amount:
         type: number
+        description: Transaction amount
       balance:
         type: number
+        description: Account balance after transaction
       type:
         type: string
+        description: Transaction type
       category:
         type: string
+        description: Transaction category (one of dropdown list)
       note:
         type: string
+        description: Transaction note (defined by user)
   TransactionCategory:
     type: object
     properties:
@@ -411,11 +422,13 @@ definitions:
           - Transfers
           - Miscellaneous
         example: 'string'
+        description: Transaction category (one of dropdown list)
   TransactionNote:
     type: object
     properties:
       note:
         type: string
+        description: Transaction note (defined by user)
   AccountsResponse:
     type: object
     properties:
