@@ -85,8 +85,8 @@ Vous pouvez consulter la documentation Swagger de l'API à l'adresse suivante : 
 
 ## Design Assets
 
-Static HTML and CSS has been created for most of the site and is located in: `/designs`.
+La version statique précédente en HTML et CSS est disponible dans le dossier `/designs`.
 
-For some of the dynamic features, like toggling user editing, there is a mock-up for it in `/designs/wireframes/edit-user-name.png`.
+Les mock-up de la fonctionnalité dynamique de modification des informations de l'utilisateur est visible dans `/designs/wireframes/edit-user-name.png`.
 
-And for the API model that you will be proposing for transactitons, the wireframe can be found in `/designs/wireframes/transactions.png`.
+Le wireframe du modèle API pour les transactions est visible dans `/designs/wireframes/transactions.png`.
