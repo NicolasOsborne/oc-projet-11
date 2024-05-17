@@ -1,0 +1,14 @@
+// Styles imported from all scss files
+
+@import "./base/base";
+
+@import "./components/header";
+@import "./components/hero";
+@import "./components/features";
+@import "./components/button";
+@import "./components/editUserInfoForm";
+@import "./components/accountCard";
+@import "./components/footer";
+
+@import "./pages/signin";
+@import "./pages/user";
