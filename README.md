@@ -1,32 +1,45 @@
-# Argent Bank API
+![Logo de Argent Bank](./frontend/public/argentBankLogo.png)
 
-This codebase contains the code needed to run the backend for Argent Bank.
+# Projet 11 - Formation OpenClassrooms - Argent Bank
 
-## Getting Started
+Implémenter le front-end d'une application bancaire avec React
 
-### Prerequisites
+## Outils utilisés :
 
-Argent Bank uses the following tech stack:
+- React
+- Redux-Toolkit
+- TypeScript
+- MongoDB
+- Swagger
+- Vite
+- Node.JS
 
-- [Node.js v12](https://nodejs.org/en/)
-- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+# Installation et lancement de l'API
 
-Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
+1. Cloner le repository
+
+   - `git clone https://github.com/NicolasOsborne/oc-projet-11.git`
+
+2. Pré-requis
+
+   Argent Bank utilise les stacks suivantes :
+
+   - [Node.JS >= v12](https://nodejs.org/en/)
+   - [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+
+   Veuillez vérifier que vous avez les bonnes versions des deux packages. Pour vérifier, utilisez les commandes suivantes dans le terminal :
 
 ```bash
-# Check Node.js version
-node --version
+   # Check Node.js version
+   node --version
 
-# Check Mongo version
-mongo --version
+   # Check Mongo version
+   mongo --version
 ```
 
-### Instructions
+3. Installation
 
-1. Fork this repo
-1. Clone the repo onto your computer
-1. Open a terminal window in the cloned project
-1. Run the following commands:
+   Ouvrir un termninal dans le projet cloné et lancer les commandes suivantes :
 
 ```bash
 # Install dependencies
@@ -39,11 +52,7 @@ npm run dev:server
 npm run populate-db
 ```
 
-Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
-
-## Populated Database Data
-
-Once you run the `populate-db` script, you should have two users in your database:
+Votre serveur devrait maintenant être lancé sur le port http://localhost:3001 et avoir les 2 users suivants renseignés dans la base de données MongoDB :
 
 ### Tony Stark
 
@@ -59,9 +68,20 @@ Once you run the `populate-db` script, you should have two users in your databas
 - Email: `steve@rogers.com`,
 - Password: `password456`
 
-## API Documentation
+## Documentation de l'API
 
-To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3001/api-docs
+Vous pouvez consulter la documentation Swagger de l'API à l'adresse suivante : http://localhost:3001/api-docs
+
+4. Lancement de l'application
+
+   - Ouvrir une nouvelle fenêtre de terminal
+   - `cd frontend`
+   - `npm install`
+   - `npm run dev`
+
+5. Ouvrir le projet à l'URL suivante :
+
+   - `http://localhost:5173/`
 
 ## Design Assets
 
