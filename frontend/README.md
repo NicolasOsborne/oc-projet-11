@@ -1,4 +1,4 @@
-![Logo de Argent Bank](./frontend/public/argentBankLogo.png)
+![Logo de Argent Bank](./public/argentBankLogo.png)
 
 # Projet 11 - Formation OpenClassrooms - Argent Bank
 
