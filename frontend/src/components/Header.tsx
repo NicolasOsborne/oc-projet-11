@@ -22,7 +22,7 @@ const Header = () => {
     // Envoi de l'action logoutSuccess
     dispatch(logoutSuccess())
     // Redirection vers la page de connexion une fois l'utilisateur déconnecté
-    navigate('/sign-in')
+    navigate('/login')
   }
 
   return (
@@ -38,18 +38,14 @@ const Header = () => {
       </Link>
       <div>
         {/* Lien vers la page de connexion */}
-        <NavLink to='/sign-in' className='main-nav-item'>
+        <NavLink to='/login' className='main-nav-item'>
           <i className='fa fa-user-circle'></i>
           {/* Si l'utilisateur est connecté, afficher son pseudo, sinon afficher "Sign In" */}
           {isLoggedIn ? `${' ' + userName}` : ' Sign In '}
         </NavLink>
         {/* Si l'utilisateur est connecté, afficher le lien de déconnexion "Sign Out", qui au clic déclenche l'action handleLogout et redirige vers la page de connexion */}
         {isLoggedIn && (
-          <NavLink
-            to='/sign-in'
-            className='main-nav-item'
-            onClick={handleLogout}
-          >
+          <NavLink to='/login' className='main-nav-item' onClick={handleLogout}>
             <i className='fa fa-sign-out'></i>
             {' Sign Out '}
           </NavLink>

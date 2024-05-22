@@ -13,10 +13,10 @@ const SignIn = () => {
   // Hook permettant de programmer la navigation vers une autre page
   const navigate = useNavigate()
 
-  // Hook pour gérer la redirection vers le dashboard /user si l'utilsateur est déjà connecté
+  // Hook pour gérer la redirection vers le dashboard /profile si l'utilsateur est déjà connecté
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/user')
+      navigate('/profile')
     }
   }, [isLoggedIn, navigate])
 

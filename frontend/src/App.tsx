@@ -31,9 +31,10 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/login' element={<SignIn />} />
         {/* Afficher la page User seulement si isLoggedIn est true */}
-        {isLoggedIn && <Route path='/user' element={<User />} />}
+        {isLoggedIn && <Route path='/profile' element={<User />} />}
+        <Route path='*' element={<Home />} />
       </Routes>
       <Footer />
     </Router>
